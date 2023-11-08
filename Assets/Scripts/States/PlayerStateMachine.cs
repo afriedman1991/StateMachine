@@ -38,10 +38,13 @@ public class PlayerStateMachine : StateMachine
         //transform.Translate(direction * Time.deltaTime, Space.World);
         rb.MovePosition(rb.position + direction * Time.deltaTime);
         rb.MoveRotation(Quaternion.LookRotation(direction, Vector3.up));
+        //LookInDirection(direction);
     }
 
     public void LookInDirection(Vector3 direction)
     {
+        if (direction.magnitude != 0) return;
+
         rb.MoveRotation(Quaternion.LookRotation(direction, Vector3.up));
     }
 }
