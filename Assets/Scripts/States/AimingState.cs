@@ -5,9 +5,13 @@ using UnityEngine;
 public class AimingState : BaseState
 {
     [SerializeField] Animator characterAnimation;
+    [SerializeField] Camera mainCamera;
 
     public override void StateUpdate()
     {
+        Vector3 forwardDirection = Vector3.Cross(mainCamera.transform.right, Vector3.up);
+        state.transform.rotation = Quaternion.LookRotation(forwardDirection, Vector3.up);
+
         if (Input.GetButtonDown("Fire1"))
         {
             state.ChangeState<ShootingState>();

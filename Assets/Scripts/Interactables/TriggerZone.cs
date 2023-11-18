@@ -9,18 +9,18 @@ public class TriggerZone : MonoBehaviour
 
     // On Trigger Stay, check the button every frame
     // On trigger enter, check every frame "have I pressed 'X' yet?"
-    private void Awake()
-    {
-        interactable = transform.parent.GetComponentInChildren<InteractableBehavior>();
-    }
+    //private void Awake()
+    //{
+    //    interactable = transform.parent.GetComponentInChildren<InteractableBehavior>();
+    //}
 
-    public void Update()
+    protected virtual void Update()
     {
         if (who != null && Input.GetButtonDown("Interact"))
         {
             Debug.Log($"Interacted with Trigger Zone {name}", this);
-            interactable?.OnInteract(who);
-            OnInteract?.Invoke(interactable.gameObject);
+
+            OnInteractedWith(who);
         }
     }
 
@@ -33,8 +33,18 @@ public class TriggerZone : MonoBehaviour
     {
         this.who = who;
         Debug.Log($"Entered {name}");
-        Debug.Log(interactable?.GetToolTip());
+
+        OnZoneEntered(who);
+        //Debug.Log(interactable?.GetToolTip());
     }
+
+    public virtual void OnInteractedWith(Collider who)
+    {
+        interactable?.OnInteract(who);
+        OnInteract?.Invoke(who);
+    }
+
+    public virtual void OnZoneEntered(Collider who) { }
 }
 
 //See stats for spread radius, recoil, data should determine if it's a prefab bullet or if its a raycast bullet

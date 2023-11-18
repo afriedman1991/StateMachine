@@ -19,3 +19,4 @@ public abstract class InteractableBehavior : MonoBehaviour, Interactable
         return "Press 'Triangle' to interact";
     }
 }
+  

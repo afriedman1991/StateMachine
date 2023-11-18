@@ -14,7 +14,6 @@ public class PlayerStateMachine : StateMachine
     private void Awake()
     {
         var states = GetComponentsInChildren<BaseState>();
-
         for (int i = 0; i < states.Length; i++)
         {
             states[i].InitializeStateMachine(this);
