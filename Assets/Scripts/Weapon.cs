@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float timeBetweenShots = 5f;
     [SerializeField] private Transform gunTip;
     [SerializeField] private Transform gunContainer;
+    [SerializeField] private Transform player;
 
     public float pickUpRange;
     public float dropForwardForce, dropUpwardForce;
@@ -66,7 +67,18 @@ public class Weapon : MonoBehaviour
 
     public void Equip(WeaponData weaponItem)
     {
-        weaponItem.InstantiateEquipModel(gunContainer);
+        weaponItem.InstantiateEquipWeapon(gunContainer);
         gunTip = GameObject.FindGameObjectWithTag("GunTip").transform;
+    }
+
+    public void Drop(WeaponData weaponItem)
+    {
+        weaponItem.InstantiateWorldWeapon();
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+
+        rb.AddForce(player.forward * 15f, ForceMode.Impulse);
+        rb.AddForce(player.up * dropUpwardForce, ForceMode.Impulse);
     }
 }

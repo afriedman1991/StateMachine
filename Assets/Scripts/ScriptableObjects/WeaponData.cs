@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponItem", menuName = "ScriptableObjects/WeaponObj")]
 public class WeaponData : ScriptableObject
 {
+    public string weaponType;
     public int ammoAmt;
     public int shotsPerSecond;
     public int maxClipSize;
@@ -17,16 +18,16 @@ public class WeaponData : ScriptableObject
     public Transform[] spawnLocations;
     public Bullet bullet;
 
-    public void InstantiateWorldGun()
+    public void InstantiateWorldWeapon()
     {
         Instantiate(worldModel, spawnLocations[0].transform.position, Quaternion.identity);
     }
 
-    public void InstantiateEquipModel(Transform gunContainer)
+    public void InstantiateEquipWeapon(Transform weaponContainer)
     {
-        GameObject equipGun = Instantiate(equipModel, gunContainer.position, Quaternion.identity);
+        GameObject equipGun = Instantiate(equipModel, weaponContainer.position, Quaternion.identity);
 
-        equipGun.transform.SetParent(gunContainer);
+        equipGun.transform.SetParent(weaponContainer);
         equipGun.transform.localPosition = Vector3.zero;
         equipGun.transform.localRotation = Quaternion.identity;
     }

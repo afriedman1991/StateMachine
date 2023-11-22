@@ -17,8 +17,9 @@ MonoBehaviour:
   maxClipSize: 10
   bulletsPerShot: 1
   recoilForce: {x: 0, y: 0}
-  angleSpread: 5
+  angleSpread: 0
   equipModel: {fileID: 3514817418401734010, guid: d39ac67987348424180c68ff08f79b4d, type: 3}
   worldModel: {fileID: 614198570418139502, guid: 3bbf8463828744f73992895862e5e6eb, type: 3}
   spawnLocations:
   - {fileID: 884432422892661950, guid: 596133b7a37d543d4a7e7d22c8974adf, type: 3}
+  bullet: {fileID: -927659839436801569, guid: 7673ab5deb0e24cc5923db209cc3bb03, type: 3}

@@ -8,6 +8,6 @@ public class SpawnItem : MonoBehaviour
 
     void Start()
     {
-        weapon.InstantiateWorldGun();
+        weapon.InstantiateWorldWeapon();
     }
 }

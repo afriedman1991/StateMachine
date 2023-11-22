@@ -484,14 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0943209fcfdad4775a9eb0b2bb963588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: {fileID: 0}
   coll: {fileID: 80219325}
-  player: {fileID: 1202891595}
-  gunContainer: {fileID: 1988817028}
-  weapon: {fileID: 0}
-  pickUpRange: 4
-  dropForwardForce: 15
-  dropUpwardForce: 7
-  equipped: 0
+  weaponData: {fileID: 0}
 --- !u!1 &120634162
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf524f05b1d1e4e1894d3c0900946f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: {fileID: 0}
+  item: 
 --- !u!135 &172755509
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1065,6 +1062,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf524f05b1d1e4e1894d3c0900946f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: {fileID: 0}
+  item: 
 --- !u!135 &288724274
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1456,6 +1455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf524f05b1d1e4e1894d3c0900946f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: {fileID: 0}
+  item: 
 --- !u!135 &319400320
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1551,7 +1552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &323240487
 Transform:
   m_ObjectHideFlags: 0
@@ -1576,7 +1577,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323240486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 259caea9961044a6fb98577c38a6d32e, type: 3}
   m_Name: 
@@ -7432,7 +7433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1001212810
 Transform:
   m_ObjectHideFlags: 0
@@ -7441,7 +7442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001212809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.49158, y: 13.198629, z: -0.45846748}
+  m_LocalPosition: {x: -13.37, y: 13.198629, z: -0.45846748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8541,6 +8542,7 @@ GameObject:
   - component: {fileID: 1202891603}
   - component: {fileID: 1202891604}
   - component: {fileID: 1202891605}
+  - component: {fileID: 1202891606}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -8689,7 +8691,7 @@ MonoBehaviour:
   whatIsGrappleable:
     serializedVersion: 2
     m_Bits: 1024
-  lr: {fileID: 1203701662}
+  lr: {fileID: 0}
   grapplePosition: {fileID: 120634163}
   maxGrappleDistance: 25
   grappleDelayTime: 0.25
@@ -8709,6 +8711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterAnimation: {fileID: 1009308211}
+  mainCamera: {fileID: 963194227}
 --- !u!114 &1202891605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8722,11 +8725,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedItems: []
---- !u!120 &1203701662 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 614198570418139497, guid: 3bbf8463828744f73992895862e5e6eb, type: 3}
-  m_PrefabInstance: {fileID: 614198569371203319}
+--- !u!114 &1202891606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202891594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b458a8b2a3c74ec9b86df4c02375541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: f9b485a21fbd0432aa52c642f6bcef49, type: 2}
+  timeBetweenShots: 5
+  gunTip: {fileID: 0}
+  gunContainer: {fileID: 0}
+  pickUpRange: 0
+  dropForwardForce: 0
+  dropUpwardForce: 0
 --- !u!1 &1236007474
 GameObject:
   m_ObjectHideFlags: 3
@@ -9113,7 +9130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454836763}
-  m_LocalRotation: {x: 0.045914523, y: 0.7277057, z: -0.048948653, w: 0.6825982}
+  m_LocalRotation: {x: 0.045914527, y: 0.7277057, z: -0.04894865, w: 0.68259823}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9248,7 +9265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2958597322845887443, guid: ceafb8677807749128d75106de0a04cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.67
+      value: -20.75
       objectReference: {fileID: 0}
     - target: {fileID: 2958597322845887443, guid: ceafb8677807749128d75106de0a04cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9314,7 +9331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2958597322845887443, guid: ceafb8677807749128d75106de0a04cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.67
+      value: -20.75
       objectReference: {fileID: 0}
     - target: {fileID: 2958597322845887443, guid: ceafb8677807749128d75106de0a04cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9376,7 +9393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2958597322845887443, guid: ceafb8677807749128d75106de0a04cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.67
+      value: -20.75
       objectReference: {fileID: 0}
     - target: {fileID: 2958597322845887443, guid: ceafb8677807749128d75106de0a04cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9629,7 +9646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1877673933
 Transform:
   m_ObjectHideFlags: 0
@@ -10608,7 +10625,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137122417}
-  m_LocalRotation: {x: 0.040305533, y: 0.72808325, z: -0.042969003, w: 0.68295234}
+  m_LocalRotation: {x: 0.04030552, y: 0.72808325, z: -0.042968996, w: 0.68295234}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
