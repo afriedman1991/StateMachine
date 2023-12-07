@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06337b7c06e94e1c97a209d6a4fd994, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  weaponType: Sword
+  ammoAmt: 0
+  shotsPerSecond: 1
+  maxClipSize: 0
+  bulletsPerShot: 0
+  recoilForce: {x: 0, y: 0}
+  angleSpread: 0
+  equipModel: {fileID: 3514817418401734010, guid: 66a72a31e96e9460290025cc81d4391c, type: 3}
+  worldModel: {fileID: 3514817418401734010, guid: ee0950743dca84ffa8543fb1f6344fed, type: 3}
+  spawnLocations: []
+  bullet: {fileID: 0}
+  projectileSpeed: 0
+  chargeTime: 3
+  reloadTime: 0
+  damageMod: 0

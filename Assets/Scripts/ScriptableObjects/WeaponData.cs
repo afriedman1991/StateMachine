@@ -16,7 +16,12 @@ public class WeaponData : ScriptableObject
     public GameObject equipModel;
     public GameObject worldModel;
     public Transform[] spawnLocations;
+
     public Bullet bullet;
+    public float projectileSpeed;
+    public float chargeTime;
+    public float reloadTime;
+    public float damageMod;
 
     public void InstantiateWorldWeapon()
     {
@@ -25,7 +30,9 @@ public class WeaponData : ScriptableObject
 
     public void InstantiateEquipWeapon(Transform weaponContainer)
     {
+        Debug.Log($"Equip Weapon: {weaponContainer}");
         GameObject equipGun = Instantiate(equipModel, weaponContainer.position, Quaternion.identity);
+
 
         equipGun.transform.SetParent(weaponContainer);
         equipGun.transform.localPosition = Vector3.zero;

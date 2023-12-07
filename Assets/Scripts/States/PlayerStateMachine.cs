@@ -24,9 +24,13 @@ public class PlayerStateMachine : StateMachine
 
     public void MoveCamera(Vector3 direction, float speed)
     {
+        if (direction.magnitude <= 0)
+        {
+            return;
+        }
+
         direction = Vector3.ProjectOnPlane(direction, transform.up);
         direction = direction.normalized * speed;
-
         Move(direction);
     }
 

@@ -6,6 +6,12 @@ public class AttackState : BaseState
 {
     //[SerializeField] Renderer playerRenderer;
     [SerializeField] Animator characterAnimation;
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask layerMask;
+
+    public override void StateUpdate()
+    {
+    }
 
     public override void StateExit()
     {
@@ -14,6 +20,12 @@ public class AttackState : BaseState
 
     public override void StateEnter()
     {
+        var typesFound = ScanForType<MonoBehaviour>(transform.position, radius, layerMask);
+        for (int i = 0; i < typesFound.Count; i++)
+        {
+            Debug.Log($"types found: {typesFound[i].name}");
+        }
+
         //Debug.Log("Entered Attack StateEnter");
         characterAnimation.SetBool("isAttacking", true);
 

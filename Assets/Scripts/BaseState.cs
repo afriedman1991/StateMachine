@@ -15,6 +15,44 @@ public class BaseState : MonoBehaviour
         state = currentState;
     }
 
+    // find a specific list of objects or types within a radius from point
+    public List<MonoBehaviour> Scan(Vector3 pos, float radius, int layerMask)
+    {
+        List<MonoBehaviour> colliderFilter = new List<MonoBehaviour>();
+        Collider[] coll = Physics.OverlapSphere(pos, radius, layerMask);
+
+        for (int i = 0; i < coll.Length; i++)
+        {
+            MonoBehaviour behaviour = coll[i].GetComponentInParent<MonoBehaviour>();
+            // check every collider that's been in this radius with a directional filter
+            if (behaviour != null)
+            {
+                colliderFilter.Add(behaviour);
+            }
+        }
+
+        return colliderFilter;
+    }
+
+    // find a specific list of objects or types within a radius from point
+    public List<T> ScanForType<T>(Vector3 pos, float radius, int layerMask)
+    {
+        List<T> colliderFilter = new List<T>();
+        Collider[] coll = Physics.OverlapSphere(pos, radius, layerMask);
+
+        for (int i = 0; i < coll.Length; i++)
+        {
+            T behaviour = coll[i].GetComponentInParent<T>();
+            // check every collider that's been in this radius with a directional filter
+            if (behaviour != null)
+            {
+                colliderFilter.Add(behaviour);
+            }
+        }
+
+        return colliderFilter;
+    }
+
     public virtual void StateUpdate() { }
 
     public virtual void StateLateUpdate() { }

@@ -14,9 +14,9 @@ public class ShootingState : BaseState
     {
         characterAnimation.Play("Shooting");
 
-        state.WaitForSeconds(1f, () =>
+        state.WaitForSeconds(2f, () =>
         {
-            state.ChangeState<IdleState>();
+            state.ChangeState<AimingState>();
         });
     }
 }

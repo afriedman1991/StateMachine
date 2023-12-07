@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06337b7c06e94e1c97a209d6a4fd994, type: 3}
   m_Name: WeaponData
   m_EditorClassIdentifier: 
-  ammoAmt: 10
-  shotsPerSecond: 4
-  maxClipSize: 10
-  bulletsPerShot: 1
+  weaponType: Sword
+  ammoAmt: 0
+  shotsPerSecond: 1
+  maxClipSize: 0
+  bulletsPerShot: 0
   recoilForce: {x: 0, y: 0}
   angleSpread: 0
-  equipModel: {fileID: 3514817418401734010, guid: d39ac67987348424180c68ff08f79b4d, type: 3}
+  equipModel: {fileID: 3514817418401734010, guid: 65bca0e746724416ea22c5cc18685d61, type: 3}
   worldModel: {fileID: 614198570418139502, guid: 3bbf8463828744f73992895862e5e6eb, type: 3}
   spawnLocations:
   - {fileID: 884432422892661950, guid: 596133b7a37d543d4a7e7d22c8974adf, type: 3}

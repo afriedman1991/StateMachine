@@ -31,7 +31,7 @@ public class AimingState : BaseState
     public override void StateEnter()
     {
         Debug.LogWarning("Entering aiming state");
-        characterAnimation.SetBool("isAiming", true);
+        //characterAnimation.SetBool("isAiming", true);
     }
 
     public override void StateExit()
